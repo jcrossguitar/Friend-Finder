@@ -4,13 +4,16 @@
   "description": "Friend finding app",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "inquire": "^0.4.8",
     "inquirer": "^7.0.0",
+    "path": "^0.12.7",
     "require": "^2.4.20"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "n"
+    "test": "n",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
