@@ -3,6 +3,6 @@ app.get("/", function(req, res) {
   });
   
   app.get("/../../survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
+    res.sendFile(path.join(__dirname, "../../survey.html"));
   });
   
