@@ -23,7 +23,7 @@
           <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
               Character</button></a>
           <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
-                class="fa fa-eye"></span> All Characters</button></a>
+                class="fa fa-eye"></span>Pile of Friends</button></a>
         </div>
         <div class="row">
     
@@ -31,7 +31,7 @@
     
             <div class="card mb-4">
               <div class="card-header">
-                <h3><strong>Character Search</strong></h3>
+                <h3><strong>Friend Search</strong></h3>
               </div>
               <div class="card-body">
                 <input type="text" id="character-search" class="form-control">
@@ -51,7 +51,7 @@
               <div class="card-body">
                 <h2 id="name">Jon</h2>
                 <div id="stats">
-                  <h3><strong>Position:</strong> <span id="position">ER Patient Access Services</span></h3>
+                  <h3><strong>Position:</strong> <span id="position">ER Patient Access Services/Student</span></h3>
                   <h3><strong>Sex:</strong> <span id="sex">Male</span></h3>
                   <h3><strong>Age:</strong> <span id="age">30</span></h3>
                   <h3><strong>City:</strong> <span id="city">San Diego</span></h3>
@@ -66,8 +66,7 @@
         $("#search-btn").on("click", function() {
           var searched = $("#character-search").val().trim();
     
-          // Using a RegEx Pattern to remove spaces from searchedCharacter
-          // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+        
           searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
           searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
@@ -78,11 +77,12 @@ $.get("/api/characters/" + searchedCharacter, function(data) {
     $("#stats").show();
     $("#name").text(data.name);
     $("#position").text(data.position);
+    $("#sex").text(data.sex);
     $("#age").text(data.age);
     $("#city").text(data.city);
   } else {
     $("#name").text(
-      "The force is not strong with this one. Your character was not found.");
+      "Something went wrong.");
     $("#stats").hide();
   }
 });

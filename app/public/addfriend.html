@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Add yourself to the pile!</h1>
+      <h3>This is where you give base information to others looking for friends!</h3>
+      <hr>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Characters</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+
+        <div class="card">
+          <div class="card-header">
+            <h3><strong>+1</strong></h3>
+          </div>
+          <div class="card-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="position">Profession</label>
+                <input type="text" class="form-control" id="position">
+              </div>
+
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" class="form-control" id="age">
+              </div>
+
+              <div class="form-group">
+                <label for="sex">Sex</label>
+                <input type="text" class="form-control" id="sex">
+              </div>
+
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="sex">
+              </div>
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add to the Force</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var name =  $("#name").val().trim();
+      var routeName = name.replace(/\s+/g, "").toLowerCase();
+      
+      var newCharacter = {
+        routeName: routeName,
+        name: $("#name").val().trim(),
+        position: $("#position").val().trim(),
+        age: $("#age").val().trim(),
+        sex: $("#sex").val().trim(),
+        city: $("#city").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/characters", newCharacter)
+        .then(function(data) {
+          console.log("add.html", data);
+          alert("Adding character...");
+        });
+    });
+  </script>
+
+</body>
+</html>
