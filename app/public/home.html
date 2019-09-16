@@ -17,10 +17,10 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-          <h1>Star Wars Express</h1>
-          <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+          <h1>Friend Finder</h1>
+          <h3>Looking for people to do things with does not have to be hard.</h3>
           <hr>
-          <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
+          <a href="/addFriend"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
               Character</button></a>
           <a href="/api/characters"><button class="btn btn-danger btn-lg"><span
                 class="fa fa-eye"></span>Pile of Friends</button></a>
@@ -89,7 +89,7 @@ $.get("/api/characters/" + searchedCharacter, function(data) {
 });
     </script>
 
-    <script src="../../server.js"></script>
+    <script src="/../../server.js"></script>
 
 </body>
 </html>
