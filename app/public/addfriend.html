@@ -17,7 +17,7 @@
       <h1>Add yourself to the pile!</h1>
       <h3>This is where you give base information to others looking for friends!</h3>
       <hr>
-      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Characters</button></a>
+      <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Friends</button></a>
     </div>
     <div class="row">
 
@@ -58,7 +58,7 @@
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add to the Force</button>
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Add yourself to the pile</button>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
       // Question: What does this code do??
       $.post("/api/characters", newCharacter)
         .then(function(data) {
-          console.log("add.html", data);
+          console.log("addfriend.html", data);
           alert("Adding character...");
         });
     });
