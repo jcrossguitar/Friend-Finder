@@ -1,16 +1,19 @@
+var path = require("path");
 
-  
+module.exports = function(app) {
+
   app.get("/survey", function(req, res) {
-    res.sendFile(path.join(__dirname, "/survey.html"));
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
 
     
   app.get("/addfriend", function(req, res) {
-    res.sendFile(path.join(__dirname, "/addfriend.html"));
+    res.sendFile(path.join(__dirname, "../public/addfriend.html"));
   });
   
     
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
   
+};
