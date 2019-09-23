@@ -13,17 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-var characters = [
-    {
-      routeName: "Jon",
-      name: "Jon",
-      position: "ER Patient Access Services/Student",
-      sex: "Male",
-      age: 30,
-      city: "San Diego",
 
-    }
-  ];
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/home.html"));
