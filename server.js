@@ -2,11 +2,12 @@
 // =============================================================
 var express = require("express");
 var path = require("path");
+var routes = require("./app/routing/htmlRoutes.js")
 
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,19 +26,19 @@ var characters = [
   ];
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/home.html"));
+    res.sendFile(path.join(__dirname, "/home.html"));
   });
 
-  app.get("/app/public/survey.html", function(req, res) {
-    res.sendFile(path.join(__dirname, "/app/public/home.html"));
+  app.get("/survey.html", function(req, res) {
+    res.sendFile(path.join(__dirname, "/survery.html"));
   });
 
-app.get("/api/characters", function(req, res) {
+app.get("/api/addfriend", function(req, res) {
     return res.json(characters);
 
 });
   
-app.get("/api/characters/:character", function(req, res) {
+app.get("/api/addfriend/:addfriend", function(req, res) {
     var chosen = req.params.character;
       
     console.log(chosen);
@@ -52,7 +53,7 @@ app.get("/api/characters/:character", function(req, res) {
 return res.json(false);
 });
 
-app.post("/api/characters", function(req, res) {
+app.post("/api/addfriend", function(req, res) {
 
 
   var newCharacter = req.body;
@@ -67,6 +68,9 @@ app.post("/api/characters", function(req, res) {
   res.json(newCharacter);
 });
 
+
+require("./app/routing/apiRoutes.js")
+require("./app/routing/htmlRoutes.js")
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
